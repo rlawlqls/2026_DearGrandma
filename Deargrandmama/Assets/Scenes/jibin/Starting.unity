@@ -185,7 +185,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1924722046}
+      - m_Target: {fileID: 1769659120}
         m_TargetAssemblyTypeName: MenuDropdown, Assembly-CSharp
         m_MethodName: PauseGame
         m_Mode: 1
@@ -508,6 +508,7 @@ GameObject:
   - component: {fileID: 462773300}
   - component: {fileID: 462773299}
   - component: {fileID: 462773298}
+  - component: {fileID: 462773302}
   m_Layer: 5
   m_Name: MenuCanvas
   m_TagString: Untagged
@@ -575,7 +576,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 100
+  m_SortingOrder: 200
   m_TargetDisplay: 0
 --- !u!224 &462773301
 RectTransform:
@@ -590,16 +591,29 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 46126141}
+  - {fileID: 1769659119}
   - {fileID: 1924722045}
   - {fileID: 647441539}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &462773302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462773297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77ec17312ff89ed4ca33e02e45fe74cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &506409032
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,7 +780,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 462773301}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &647441540
 MonoBehaviour:
@@ -990,7 +1004,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1110,7 +1124,7 @@ RectTransform:
   - {fileID: 1070060730}
   - {fileID: 2041768537}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1201,7 +1215,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1924722046}
+      - m_Target: {fileID: 1769659120}
         m_TargetAssemblyTypeName: MenuDropdown, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
@@ -1469,7 +1483,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1924722046}
+      - m_Target: {fileID: 1769659120}
         m_TargetAssemblyTypeName: MenuDropdown, Assembly-CSharp
         m_MethodName: PauseGame
         m_Mode: 1
@@ -1519,6 +1533,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1624347972}
   m_CullTransparentMesh: 1
+--- !u!1 &1769659118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1769659119}
+  - component: {fileID: 1769659120}
+  m_Layer: 5
+  m_Name: MenuManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1769659119
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769659118}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 462773301}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 163.38861, y: 58.694798}
+  m_SizeDelta: {x: 163.7519, y: 138.6103}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1769659120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769659118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f95fc505e3bfe9740b1ed76e0858abf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MenuPanel: {fileID: 196057373}
+  PauseOverlay: {fileID: 46126137}
+  PauseButtonText: {fileID: 2143110415}
 --- !u!1 &1828843942
 GameObject:
   m_ObjectHideFlags: 0
@@ -1884,7 +1950,6 @@ GameObject:
   - component: {fileID: 1924722049}
   - component: {fileID: 1924722048}
   - component: {fileID: 1924722047}
-  - component: {fileID: 1924722046}
   m_Layer: 5
   m_Name: MenuButton
   m_TagString: Untagged
@@ -1907,28 +1972,13 @@ RectTransform:
   - {fileID: 506409033}
   - {fileID: 196057374}
   m_Father: {fileID: 462773301}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -17.5, y: -17.5}
   m_SizeDelta: {x: 35, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1924722046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1924722044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f95fc505e3bfe9740b1ed76e0858abf4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MenuPanel: {fileID: 196057373}
-  PauseOverlay: {fileID: 46126137}
-  PauseButtonText: {fileID: 2143110415}
 --- !u!114 &1924722047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1973,7 +2023,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1924722046}
+      - m_Target: {fileID: 1769659120}
         m_TargetAssemblyTypeName: MenuDropdown, Assembly-CSharp
         m_MethodName: ToggleMenu
         m_Mode: 1
@@ -2200,7 +2250,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2041768536
 GameObject:
@@ -2255,7 +2305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.990566, g: 0.9672036, b: 0.9672036, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
