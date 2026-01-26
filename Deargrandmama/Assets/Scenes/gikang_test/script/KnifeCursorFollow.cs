@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+/*using UnityEngine;
 
 public class KnifeCursorFollow : MonoBehaviour
 {
@@ -33,4 +33,37 @@ public class KnifeCursorFollow : MonoBehaviour
     }
 
     public bool IsFollowing => followOn;
+}*/
+
+using UnityEngine;
+
+public class KnifeCursorFollow : MonoBehaviour
+{
+    [SerializeField] private Camera cam;
+    public bool followOn = false;
+
+    private void Awake()
+    {
+        if (cam == null) cam = Camera.main;
+        if (knifeVisual != null)
+            knifeVisual.localPosition = visualOffset;
+    }
+
+    private void Update()
+    {
+        if (!followOn) return;
+
+        Vector3 w = cam.ScreenToWorldPoint(Input.mousePosition);
+        w.z = 0f;
+        transform.position = w;
+    }
+    [SerializeField] private Transform knifeVisual;
+    [SerializeField] private Vector3 visualOffset;
+
+    private void OnValidate()
+    {
+        if (knifeVisual != null)
+            knifeVisual.localPosition = visualOffset;
+    }
 }
+
