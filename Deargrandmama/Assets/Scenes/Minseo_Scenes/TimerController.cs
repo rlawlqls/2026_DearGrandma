@@ -8,9 +8,12 @@ public class TimerController : MonoBehaviour
 
     public Image timerFillImage; // 깎여나갈 시계 게이지 이미지
 
+    public GameObject timeoutPanel;
+
     void Start()
     {
         currentTime = totalTime;
+        if (timeoutPanel != null) timeoutPanel.SetActive(false);
     }
 
     void Update()
@@ -25,8 +28,17 @@ public class TimerController : MonoBehaviour
             currentTime = 0;
             if (timerFillImage != null) timerFillImage.fillAmount = 0;
 
-            // 시간이 다 됐을 때 실행할 로직 (예: Debug.Log)
-            Debug.Log("시간 종료!");
+            ShowTimeout();
+        }
+    }
+
+    void ShowTimeout()
+    {
+        if (timeoutPanel != null && !timeoutPanel.activeSelf)
+        {
+            timeoutPanel.SetActive(true);
+            // 여기서 게임을 멈추고 싶다면 아래 줄 주석을 해제해
+            // Time.timeScale = 0; 
         }
     }
 
