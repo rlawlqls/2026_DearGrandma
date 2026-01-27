@@ -298,7 +298,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+<<<<<<< HEAD
+  m_text: 2. Onion Slicing
+=======
   m_text: Button
+>>>>>>> 894294d8104274f1778f13e1b5e285686ddc6c84
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -361,7 +365,11 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
+<<<<<<< HEAD
+  m_margin: {x: -91.86163, y: -0.000015258789, z: -142.0653, w: 0}
+=======
   m_margin: {x: 0, y: 0, z: 0, w: 0}
+>>>>>>> 894294d8104274f1778f13e1b5e285686ddc6c84
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -535,8 +543,13 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
+<<<<<<< HEAD
+  m_AnchoredPosition: {x: -243, y: 83}
+  m_SizeDelta: {x: 50, y: 100}
+=======
   m_AnchoredPosition: {x: 75, y: 48}
   m_SizeDelta: {x: 0, y: 100}
+>>>>>>> 894294d8104274f1778f13e1b5e285686ddc6c84
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &98117812
 MonoBehaviour:
@@ -558,8 +571,13 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
+<<<<<<< HEAD
+  m_CellSize: {x: 200, y: 50}
+  m_Spacing: {x: 0, y: 20}
+=======
   m_CellSize: {x: 50, y: 50}
   m_Spacing: {x: 0, y: 4}
+>>>>>>> 894294d8104274f1778f13e1b5e285686ddc6c84
   m_Constraint: 1
   m_ConstraintCount: 1
 --- !u!1 &103649176
@@ -620,7 +638,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+<<<<<<< HEAD
+  m_text: 1. Sausage Slicing
+=======
   m_text: Button
+>>>>>>> 894294d8104274f1778f13e1b5e285686ddc6c84
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -683,7 +705,11 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
+<<<<<<< HEAD
+  m_margin: {x: -88.65723, y: 0, z: -169.83746, w: 0}
+=======
   m_margin: {x: 0, y: 0, z: 0, w: 0}
+>>>>>>> 894294d8104274f1778f13e1b5e285686ddc6c84
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -846,7 +872,11 @@ RectTransform:
   m_GameObject: {fileID: 269939069}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
+  m_LocalScale: {x: 8, y: 3.7, z: 1}
+=======
   m_LocalScale: {x: 5, y: 2.8, z: 1}
+>>>>>>> 894294d8104274f1778f13e1b5e285686ddc6c84
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 702608414}
@@ -854,8 +884,13 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
+<<<<<<< HEAD
+  m_AnchoredPosition: {x: 23, y: 0.0000040755}
+  m_SizeDelta: {x: 92.0848, y: 102.363}
+=======
   m_AnchoredPosition: {x: 4, y: -9}
   m_SizeDelta: {x: 100, y: 100}
+>>>>>>> 894294d8104274f1778f13e1b5e285686ddc6c84
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &269939071
 MonoBehaviour:
@@ -1043,7 +1078,11 @@ GameObject:
   - component: {fileID: 478227306}
   - component: {fileID: 478227305}
   m_Layer: 5
+<<<<<<< HEAD
+  m_Name: 2. Onion Slicing
+=======
   m_Name: Button (2)
+>>>>>>> 894294d8104274f1778f13e1b5e285686ddc6c84
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1121,7 +1160,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 478227303}
+<<<<<<< HEAD
+  m_Enabled: 0
+=======
   m_Enabled: 1
+>>>>>>> 894294d8104274f1778f13e1b5e285686ddc6c84
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -1190,7 +1233,11 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
+<<<<<<< HEAD
+  m_AnchoredPosition: {x: 187, y: 76}
+=======
   m_AnchoredPosition: {x: -81, y: 48}
+>>>>>>> 894294d8104274f1778f13e1b5e285686ddc6c84
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &523724737
@@ -1214,7 +1261,11 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 50, y: 50}
+<<<<<<< HEAD
+  m_Spacing: {x: 0, y: 20}
+=======
   m_Spacing: {x: 0, y: 4}
+>>>>>>> 894294d8104274f1778f13e1b5e285686ddc6c84
   m_Constraint: 1
   m_ConstraintCount: 1
 --- !u!1 &593940370
@@ -1469,7 +1520,11 @@ GameObject:
   - component: {fileID: 1275578773}
   - component: {fileID: 1275578772}
   m_Layer: 5
+<<<<<<< HEAD
+  m_Name: 1. Sausage Slicing
+=======
   m_Name: Button (1)
+>>>>>>> 894294d8104274f1778f13e1b5e285686ddc6c84
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1547,7 +1602,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1275578770}
+<<<<<<< HEAD
+  m_Enabled: 0
+=======
   m_Enabled: 1
+>>>>>>> 894294d8104274f1778f13e1b5e285686ddc6c84
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -2227,6 +2286,8 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1812372080}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+=======
 --- !u!1 &1843464959
 GameObject:
   m_ObjectHideFlags: 0
@@ -2349,6 +2410,7 @@ RectTransform:
   m_AnchoredPosition: {x: 196.99998, y: 89}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+>>>>>>> 894294d8104274f1778f13e1b5e285686ddc6c84
 --- !u!1 &1877177657
 GameObject:
   m_ObjectHideFlags: 0
@@ -2606,6 +2668,8 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1895672068}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+=======
 --- !u!1 &1913275374
 GameObject:
   m_ObjectHideFlags: 0
@@ -2741,6 +2805,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1913275374}
   m_CullTransparentMesh: 1
+>>>>>>> 894294d8104274f1778f13e1b5e285686ddc6c84
 --- !u!1 &1968656133
 GameObject:
   m_ObjectHideFlags: 0
@@ -2931,3 +2996,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1972895481}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+--- !u!1 &2101784243
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2101784245}
+  - component: {fileID: 2101784244}
+  m_Layer: 0
+  m_Name: RecipeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2101784244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101784243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a03d51cb9f9f930419eeacb91e4549f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepButtons:
+  - {fileID: 1275578772}
+  - {fileID: 478227305}
+  - {fileID: 1972895483}
+  - {fileID: 1895672070}
+  - {fileID: 1501496152}
+  - {fileID: 80649559}
+  - {fileID: 227065794}
+  - {fileID: 1812372082}
+--- !u!4 &2101784245
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101784243}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 294.8867, y: 136.75816, z: 1.6471183}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> 894294d8104274f1778f13e1b5e285686ddc6c84
