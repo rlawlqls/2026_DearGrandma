@@ -1,0 +1,49 @@
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEditor.Rendering;
+using UnityEngine;
+
+public class Subtitle : MonoBehaviour
+{
+    public TMP_InputField nicknameInput;
+    public TMP_Text dialogueText;
+    public float typingSpeed = 0.05f;
+
+    private const string NICKNAME_KEY = "PLAYER_NICKNAME";
+
+    void Start()
+    {
+        if (PlayerPrefs.HasKey(NICKNAME_KEY))
+        {
+            nicknameInput.text = PlayerPrefs.GetString(NICKNAME_KEY);
+        }
+        string nickname = PlayerPrefs.GetString("PlayerName", "Player");
+
+        // 2. 닉네임을 포함한 문장 만들기
+        string fullSentence = $"{nickname} I want to eat some nostalgic food. Could you make it for me?";
+
+        // 3. 화면에 출력
+        dialogueText.text = fullSentence;
+        StartCoroutine(TypeText(fullSentence));
+    }
+    IEnumerator TypeText(string line)
+    {
+        dialogueText.text = ""; // 먼저 자막창을 비웁니다.
+
+        // 한 글자씩 반복해서 출력
+        foreach (char letter in line.ToCharArray())
+        {
+            dialogueText.text += letter; // 한 글자 추가
+            yield return new WaitForSeconds(typingSpeed); // 설정한 시간만큼 대기
+        }
+        //public static string GetNickname()
+        //{
+        //return PlayerPrefs.GetString(NICKNAME_KEY, "아가"); // 기본값
+        // }
+        void Update()
+        {
+
+        }
+    }
+}
