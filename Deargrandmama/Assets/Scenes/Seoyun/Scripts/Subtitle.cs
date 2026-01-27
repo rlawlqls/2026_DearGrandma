@@ -9,11 +9,16 @@ public class Subtitle : MonoBehaviour
     public string nicknameInput;
     public TMP_Text dialogueText;
     public float typingSpeed = 0.05f;
+    public GameObject NextButton;
 
     private const string NICKNAME_KEY = "PLAYER_NICKNAME";
 
     void Start()
     {
+        if (NextButton != null)
+        {
+            NextButton.SetActive(false);
+        }
         if (PlayerPrefs.HasKey(NICKNAME_KEY))
         {
             nicknameInput = PlayerPrefs.GetString(NICKNAME_KEY);
@@ -38,6 +43,11 @@ public class Subtitle : MonoBehaviour
         {
             dialogueText.text += letter; // 한 글자 추가
             yield return new WaitForSeconds(typingSpeed); // 설정한 시간만큼 대기
+        }
+
+        if(NextButton !=null)
+        {
+            NextButton.SetActive(true);
         }
         //public static string GetNickname()
         //{
