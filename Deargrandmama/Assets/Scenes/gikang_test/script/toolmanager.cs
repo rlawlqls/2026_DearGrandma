@@ -34,6 +34,10 @@ public class toolmanager : MonoBehaviour
         // 커서 처리(원하면 유지)
         Cursor.visible = !equip;
     }
+    public bool IsKnifeEquipped()
+{
+    return knifeCursor != null && knifeCursor.activeSelf;
+}
 }
 
 

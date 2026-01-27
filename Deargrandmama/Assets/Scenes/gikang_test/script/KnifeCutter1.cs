@@ -20,13 +20,18 @@ public class KnifeCutter1 : MonoBehaviour
     [Header("Visual")]
     [SerializeField] private LineRenderer dragLine; // 드래그 선 시각화
     [SerializeField] private float pointMinDistance = 0.05f; // 점 사이 최소 거리
+
+    [SerializeField] private List<GuideLineManager> lineManagers = new List<GuideLineManager>();
+
+    
+    private GuideLineManager lineManager;
     private List<Vector3> dragPoints = new List<Vector3>();
     private Vector2 dragStartWorld;
     private bool isDragging;
     private float lastCutTime = -999f;
 
     private CuttableObject startCuttable;
-
+    private int currentLineIndex = 0;
     private void Awake()
     {
         if (cam == null) cam = Camera.main;
@@ -34,6 +39,11 @@ public class KnifeCutter1 : MonoBehaviour
 
         // 시작 시 드래그 라인 숨김
         if (dragLine != null) dragLine.enabled = false;
+    }
+    private void Start()
+    {
+        lineManager = lineManagers[currentLineIndex];
+        
     }
 
     private void Update()
@@ -101,38 +111,52 @@ public class KnifeCutter1 : MonoBehaviour
     dragLine.SetPosition(dragPoints.Count - 1, current);
 }
 
-    private void EndDragAndCut()
+private void EndDragAndCut()
 {
     isDragging = false;
+    if (dragLine != null) dragLine.enabled = false;
 
-    if (dragLine != null)
-        dragLine.enabled = false;
-
-    if (startCuttable == null) return;
     if (dragPoints.Count < 2) return;
 
-    Vector2 dragEndWorld = dragPoints[dragPoints.Count - 1];
+    Vector2 dragEndWorld = (Vector2)dragPoints[dragPoints.Count - 1];
     float dist = Vector2.Distance(dragStartWorld, dragEndWorld);
     if (dist < minDragDistance) return;
 
     if (Time.time - lastCutTime < cutCooldown) return;
 
-    // 가이드라인 판정은 "직선" 기준으로 유지
-    if (guideLine != null && !guideLine.IsSlashValid(dragStartWorld, dragEndWorld))
+    // 1) 현재 가이드라인
+    guideline guideLine = lineManager != null ? lineManager.CurrentLine : null;
+    if (guideLine == null) return;
+
+    // 2) 가이드라인 판정
+    if (!guideLine.IsSlashValid(dragStartWorld, dragEndWorld))
         return;
 
-    Vector2 dir = (dragEndWorld - dragStartWorld).normalized;
+    // 3) ✅ "가이드라인 근처"의 재료를 찾아서 자르기
+    Vector2 a = guideLine.startPoint.position;
+    Vector2 b = guideLine.endPoint.position;
+    Vector2 mid = (a + b) * 0.5f;
 
-    RaycastHit2D castHit = Physics2D.CircleCast(
-        dragStartWorld, slashRadius, dir, dist, cuttableLayer
-    );
+    // 검색 반경: tolerance + 약간
+    float r = Mathf.Max(guideLine.tolerance, 0.05f) + 0.05f;
 
-    if (castHit.collider == null) return;
+    Collider2D col = Physics2D.OverlapCircle(mid, r, cuttableLayer);
+    if (col == null) return;
 
-    CuttableObject hitCuttable = castHit.collider.GetComponent<CuttableObject>();
-    if (hitCuttable != startCuttable) return;
+    CuttableObject cuttable = col.GetComponent<CuttableObject>();
+    if (cuttable == null) return;
 
-    hitCuttable.ApplyOneCut();
+    cuttable.ApplyOneCut();
     lastCutTime = Time.time;
+
+    // 4) 다음 가이드라인으로 이동
+    lineManager.Advance();
+    currentLineIndex++;
+    if (currentLineIndex < lineManagers.Count)
+    {
+        lineManager = lineManagers[currentLineIndex];
+    }
 }
+
+
 }
