@@ -5,6 +5,8 @@ using TMPro;
 
 public class MenuDropdown : MonoBehaviour
 {
+    private static MenuDropdown instance; //전역변수로 설정
+
     public GameObject MenuPanel;
     public GameObject PauseOverlay;            // 전체 화면 일시정지 UI
     public TextMeshProUGUI PauseButtonText;    // 일시정지 버튼의 텍스트
@@ -12,6 +14,18 @@ public class MenuDropdown : MonoBehaviour
     private bool IsMenuOpen = false;
     private bool IsPaused = false;
 
+    // 🔥 전역 메뉴 설정 (씬 전환 시 유지 + 중복 방지)
+    void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject); // 이미 있으면 새로 생긴 건 제거
+            return;
+        }
+
+        instance = this;
+//        DontDestroyOnLoad(gameObject);
+    }
     // Start is called before the first frame update
     void Start()
     {
