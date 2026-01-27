@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/jibin/Starting.unity
+    guid: 7285eb79c431ba54b828c456418eb11e
+  - enabled: 1
+    path: Assets/Scenes/jibin/Second.unity
+    guid: e1be5b507c0698144a7139b31d077119
+  - enabled: 1
+    path: Assets/Scenes/Seoyun/story.unity
+    guid: c4ac69d290648ae48a032e6b064b5de6
+  - enabled: 1
+    path: Assets/Scenes/jibin/FoodSelect.unity
+    guid: 266349f22c403c546834395c9583edf8
   m_configObjects: {}
