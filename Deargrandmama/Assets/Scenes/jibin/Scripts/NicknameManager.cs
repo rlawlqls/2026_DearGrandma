@@ -1,7 +1,9 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 
 public class NicknameManager : MonoBehaviour
 {
@@ -12,7 +14,7 @@ public class NicknameManager : MonoBehaviour
 
     void Start()
     {
-        // ÀÌ¹Ì ÀúÀåµÈ ´Ğ³×ÀÓÀÌ ÀÖÀ¸¸é ºÒ·¯¿À±â
+        // ì´ë¯¸ ì €ì¥ëœ ë‹‰ë„¤ì„ì´ ìˆìœ¼ë©´ ë¶ˆëŸ¬ì˜¤ê¸°
         if (PlayerPrefs.HasKey(NICKNAME_KEY))
         {
             nicknameInput.text = PlayerPrefs.GetString(NICKNAME_KEY);
@@ -25,20 +27,31 @@ public class NicknameManager : MonoBehaviour
 
         if (string.IsNullOrWhiteSpace(nickname))
         {
-            Debug.Log("´Ğ³×ÀÓÀÌ ºñ¾îÀÖÀ½!");
+            Debug.Log("ë‹‰ë„¤ì„ì´ ë¹„ì–´ìˆìŒ!");
             return;
         }
 
         PlayerPrefs.SetString(NICKNAME_KEY, nickname);
         PlayerPrefs.Save();
 
-        Debug.Log($"´Ğ³×ÀÓ ÀúÀåµÊ: {nickname}");
+        Debug.Log($"ë‹‰ë„¤ì„ ì €ì¥ë¨: {nickname}");
+
+        // ğŸ‘‰ ë‹¤ìŒ í• ë¨¸ë‹ˆ ì”¬ìœ¼ë¡œ ì´ë™ -> ì„œìœ¤ ì–¸ë‹ˆ íŒŒì¼ ì´ë¦„ìœ¼ë¡œ ë°”ê¿”ì•¼í•¨
+        SceneManager.LoadScene("Story");
     }
 
-    // ´Ù¸¥ ½ºÅ©¸³Æ®¿¡¼­ °¡Á®´Ù ¾²±â¿ë
+    // ë‹¤ë¥¸ ìŠ¤í¬ë¦½íŠ¸ì—ì„œ ê°€ì ¸ë‹¤ ì“°ê¸°ìš©
     public static string GetNickname()
     {
-        return PlayerPrefs.GetString(NICKNAME_KEY, "¾Æ°¡"); // ±âº»°ª
+        return PlayerPrefs.GetString(NICKNAME_KEY, "ì•„ê°€"); // ê¸°ë³¸ê°’
+    }
+
+    public static void ClearNickname()
+    {
+        PlayerPrefs.DeleteKey(NICKNAME_KEY);
+        PlayerPrefs.Save();
+        //ë§ˆì§€ë§‰ í™”ë©´ì—ì„œ 
+        //NicknameManager.ClearNickname(); ì‚¬ìš©í•˜ë©´ ë‹‰ë„¤ì„ ì €ì¥ë˜ì–´ìˆëŠ” ê±° ì‚¬ë¼ì§
     }
     // Update is called once per frame
     void Update()
