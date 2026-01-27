@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/jibin/FoodSelect.unity
     guid: 266349f22c403c546834395c9583edf8
+  - enabled: 1
+    path: Assets/Scenes/Seoyun/story.unity
+    guid: c4ac69d290648ae48a032e6b064b5de6
   m_configObjects: {}
