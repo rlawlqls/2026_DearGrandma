@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Subtitle : MonoBehaviour
 {
-    public TMP_InputField nicknameInput;
+    public string nicknameInput;
     public TMP_Text dialogueText;
     public float typingSpeed = 0.05f;
 
@@ -16,9 +16,11 @@ public class Subtitle : MonoBehaviour
     {
         if (PlayerPrefs.HasKey(NICKNAME_KEY))
         {
-            nicknameInput.text = PlayerPrefs.GetString(NICKNAME_KEY);
+            nicknameInput = PlayerPrefs.GetString(NICKNAME_KEY);
         }
-        string nickname = PlayerPrefs.GetString("PlayerName", "Player");
+        string nickname = PlayerPrefs.GetString(NICKNAME_KEY, "Player");
+
+    
 
         // 2. 닉네임을 포함한 문장 만들기
         string fullSentence = $"{nickname} I want to eat some nostalgic food. Could you make it for me?";
