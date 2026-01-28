@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Minseo_Scenes/Kitchen/SoursageSlicing.unity
     guid: 3e23a6c1d6ff3474ea4ef901571280b0
+  - enabled: 1
+    path: Assets/Scenes/Seoyun/Spaghetti.unity
+    guid: 414249d6d0f1e744a9767bc5f9b53b78
+  - enabled: 1
+    path: Assets/Scenes/Seoyun/FinalEvaluation.unity
+    guid: 20b61f9186e4c264389771de06fcc50b
   m_configObjects: {}
