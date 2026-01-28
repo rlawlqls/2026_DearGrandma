@@ -51,6 +51,7 @@ public class SaltTimeController : MonoBehaviour
         {
             timeoutPanel.SetActive(true);
             Debug.Log("⏰ 타임 아웃!");
+         
         }
     }
 

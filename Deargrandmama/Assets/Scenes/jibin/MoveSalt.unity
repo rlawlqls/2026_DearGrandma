@@ -315,9 +315,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 291967814}
-        m_TargetAssemblyTypeName: TimerController, Assembly-CSharp
-        m_MethodName: OnNextGameButtonClick
+      - m_Target: {fileID: 291967817}
+        m_TargetAssemblyTypeName: SaltTimeoutNextButton, Assembly-CSharp
+        m_MethodName: OnClickNext
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -490,6 +490,7 @@ GameObject:
   - component: {fileID: 291967815}
   - component: {fileID: 291967814}
   - component: {fileID: 291967816}
+  - component: {fileID: 291967817}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -543,6 +544,18 @@ MonoBehaviour:
   timerFillImage: {fileID: 305452440}
   timeoutPanel: {fileID: 76952059}
   SaltSuccessPanel: {fileID: 2054300302}
+--- !u!114 &291967817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291967813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac1379c31bc3be4388ed0dea29526b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &305452439
 GameObject:
   m_ObjectHideFlags: 0
