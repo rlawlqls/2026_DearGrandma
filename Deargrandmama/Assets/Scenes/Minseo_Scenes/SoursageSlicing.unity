@@ -419,11 +419,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visualRoot: {fileID: 0}
   stagePrefabs:
-  - {fileID: 2272457103556560847, guid: 4727d97810758bb469877395f55459dd, type: 3}
-  - {fileID: 3873884028845128539, guid: fcede655a070b704983bee22f4cf2bb2, type: 3}
-  - {fileID: 4511226622226054314, guid: 34370dcb8d9c2b54e8d76e0f04f52eff, type: 3}
-  - {fileID: 3168983628727770644, guid: 5f01a3ffe94b4544588064a8176371aa, type: 3}
-  - {fileID: 8039101285766549445, guid: 41aa71d5c2f762c48a1aabcadcc45823, type: 3}
+  - {fileID: 3585399740348297098, guid: d8dcdfdfb62969e4db1628ade1e3af39, type: 3}
+  - {fileID: 2346983393341527576, guid: c20c2c71e0aea474a968c140b451a025, type: 3}
+  - {fileID: 6330969481565137962, guid: 2f663fa5fcccc4d4e9e77f41df360e4f, type: 3}
+  - {fileID: 8978573407085860687, guid: 71408a3b5ad6e12499bfd34436665646, type: 3}
+  - {fileID: 3904806781063426742, guid: 4c77b0f6c07697948a1062286d028ec3, type: 3}
   resetLocalTransform: 1
   fixedLocalPosition: {x: 0, y: 0, z: 0}
   fixedLocalRotationEuler: {x: 0, y: 0, z: 0}
@@ -452,8 +452,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.69, y: 4.18}
-    newSize: {x: 6.69, y: 4.18}
+    oldSize: {x: 6.7, y: 4.2}
+    newSize: {x: 6.7, y: 4.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -468,7 +468,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 134762753}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -502,12 +502,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a6b55c1aabc1ba440904dedbdb8e1ade, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 43285401021e02445a2e7449e69a51fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 6.69, y: 4.18}
+  m_Size: {x: 6.7, y: 4.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
