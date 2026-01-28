@@ -56,7 +56,7 @@ public class CanOpenTimerController : MonoBehaviour
     public void OnNextGameButtonClick()
     {
         // 1. 다음 단계(1번: 양파 썰기)로 진행도 저장
-        PlayerPrefs.SetInt("RecipeStep", 1);
+        PlayerPrefs.SetInt("RecipeStep", 3);
         PlayerPrefs.Save(); // 데이터 안전하게 저장
 
         // 2. 다시 요리책 씬으로 이동 (씬 이름 대소문자 주의!)

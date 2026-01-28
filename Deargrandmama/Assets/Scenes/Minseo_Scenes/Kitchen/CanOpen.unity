@@ -672,6 +672,7 @@ GameObject:
   - component: {fileID: 291967815}
   - component: {fileID: 291967816}
   - component: {fileID: 291967817}
+  - component: {fileID: 291967818}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -701,7 +702,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 291967813}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 275d3afd5e4dbf3428e241d2e27223d8, type: 3}
   m_Name: 
@@ -729,6 +730,21 @@ MonoBehaviour:
   successPanel: {fileID: 1479985045}
   timeoutPanel: {fileID: 76952059}
   openThreshold: 0.5
+--- !u!114 &291967818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291967813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56ab1b9f680b84f4aa86815252d2d3f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalTime: 20
+  timerFillImage: {fileID: 305452440}
+  timeoutPanel: {fileID: 76952059}
 --- !u!1 &305452439
 GameObject:
   m_ObjectHideFlags: 0

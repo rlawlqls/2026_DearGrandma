@@ -910,9 +910,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1915079371}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b28e77b8ca45beb4395018c6595a512e, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c00a7652f07a3a4ca474a68497eba12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NextScene: FoodSelect
 --- !u!4 &1915079373
 Transform:
   m_ObjectHideFlags: 0

@@ -41,6 +41,11 @@ public class RecipeManager : MonoBehaviour
             // 2번 버튼 (캔따기)
             stepButtons[2].onClick.RemoveAllListeners();
             stepButtons[2].onClick.AddListener(() => OnStepClick("CanOpen"));
+
+            // 3번 버튼 (면삶기)
+            stepButtons[2].onClick.RemoveAllListeners();
+            stepButtons[2].onClick.AddListener(() => OnStepClick("NuddleMix"));
+
         }
     }
 
