@@ -383,7 +383,7 @@ GameObject:
   - component: {fileID: 134762756}
   - component: {fileID: 134762755}
   m_Layer: 6
-  m_Name: Sausage
+  m_Name: Onion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -397,7 +397,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 134762753}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.22, y: 0.47, z: 0.186957}
+  m_LocalPosition: {x: -11.53, y: 0.81, z: 0.186957}
   m_LocalScale: {x: 2.0877144, y: 1.7022977, z: 1.5705955}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -419,22 +419,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visualRoot: {fileID: 0}
   stagePrefabs:
-  - {fileID: 3585399740348297098, guid: d8dcdfdfb62969e4db1628ade1e3af39, type: 3}
-  - {fileID: 2346983393341527576, guid: c20c2c71e0aea474a968c140b451a025, type: 3}
-  - {fileID: 1480073737088660400, guid: fc994104f4412df408a44904e8f52136, type: 3}
-  - {fileID: 8978573407085860687, guid: 71408a3b5ad6e12499bfd34436665646, type: 3}
-  - {fileID: 3904806781063426742, guid: 4c77b0f6c07697948a1062286d028ec3, type: 3}
+  - {fileID: 4553792023670709980, guid: f3c728f465d946a48b4d096461f4ad38, type: 3}
+  - {fileID: 704072226976192816, guid: 77ae7dcddbcb22544b80543ae1453575, type: 3}
+  - {fileID: 6335458558744991526, guid: 03b26231598a3694f937a4b8cac8e603, type: 3}
+  - {fileID: 2925559301661912300, guid: 45950d5978872f840bb75829f6e01bb1, type: 3}
+  - {fileID: 1603408751429049521, guid: 339646e93ee302944ac4d79d0b6a60de, type: 3}
+  - {fileID: 3069086771061604583, guid: 99c99066fe3fdb94696942d64f9bd5b7, type: 3}
+  - {fileID: 8762365874823378127, guid: 17514cdfb5465294c8e47b6661845c85, type: 3}
   resetLocalTransform: 1
   fixedLocalPosition: {x: 0, y: 0, z: 0}
   fixedLocalRotationEuler: {x: 0, y: 0, z: 0}
   fixedLocalScale: {x: 1, y: 1, z: 1}
   currentStage: 0
+  useOverrideMaxStage: 1
+  overrideMaxStage: 7
   onStageChanged:
     m_PersistentCalls:
       m_Calls: []
   onFullyCut:
     m_PersistentCalls:
       m_Calls: []
+  timerController: {fileID: 0}
 --- !u!61 &134762756
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -452,8 +457,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.7, y: 4.2}
-    newSize: {x: 6.7, y: 4.2}
+    oldSize: {x: 4.84, y: 4.45}
+    newSize: {x: 4.84, y: 4.45}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -499,15 +504,15 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1931577349
+  m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 43285401021e02445a2e7449e69a51fc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a02c63840a1c43d4f9a685beda17dd62, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 6.7, y: 4.2}
+  m_Size: {x: 4.84, y: 4.45}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -648,6 +653,14 @@ PrefabInstance:
     - target: {fileID: 1006653196618103958, guid: f1e92302b1cf6794e87b4992e1a0b5ed, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1006653196618103958, guid: f1e92302b1cf6794e87b4992e1a0b5ed, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1006653196618103958, guid: f1e92302b1cf6794e87b4992e1a0b5ed, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1931577349
       objectReference: {fileID: 0}
     - target: {fileID: 1006653196618103958, guid: f1e92302b1cf6794e87b4992e1a0b5ed, type: 3}
       propertyPath: m_Materials.Array.size
@@ -1174,7 +1187,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &305452439
 GameObject:
@@ -1596,7 +1609,7 @@ Transform:
   m_Children:
   - {fileID: 234972043}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &542462566
 GameObject:
@@ -1817,7 +1830,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &772205172
 GameObject:
@@ -1849,7 +1862,7 @@ Transform:
   m_Children:
   - {fileID: 1132433084}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &844667381
 GameObject:
@@ -1889,13 +1902,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 844667381}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.1643262, y: 1.3192998, z: -0.08438157}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.1643257, y: 1.3193004, z: -0.08438157}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &882768930
 GameObject:
@@ -2686,7 +2699,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1132433083
 GameObject:
@@ -3046,7 +3059,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1315332443 stripped
 Transform:
@@ -3625,7 +3638,7 @@ Transform:
   m_Children:
   - {fileID: 2120378546}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1970239885
 GameObject:
@@ -3725,7 +3738,7 @@ RectTransform:
   - {fileID: 76952062}
   - {fileID: 178701461}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3916,9 +3929,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2120378545}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.0203, y: -2.0843, z: 0}
-  m_LocalScale: {x: 8.983, y: 5.2003603, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.4189992, y: -2.4291747, z: 0}
+  m_LocalScale: {x: 8.983001, y: 5.2003603, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1892668469}
@@ -4010,7 +4023,7 @@ Transform:
   - {fileID: 882768931}
   - {fileID: 24772343}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2137175189
 GameObject:
@@ -4024,7 +4037,7 @@ GameObject:
   - component: {fileID: 2137175191}
   - component: {fileID: 2137175190}
   m_Layer: 0
-  m_Name: SausageRoot
+  m_Name: OnionRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
