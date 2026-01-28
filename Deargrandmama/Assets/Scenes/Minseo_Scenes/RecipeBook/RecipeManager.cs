@@ -44,7 +44,7 @@ public class RecipeManager : MonoBehaviour
 
             // 3번 버튼 (면삶기)
             stepButtons[3].onClick.RemoveAllListeners();
-            stepButtons[3].onClick.AddListener(() => OnStepClick("NuddleMix"));
+            stepButtons[3].onClick.AddListener(() => OnStepClick("MoveSalt"));
 
         }
     }
