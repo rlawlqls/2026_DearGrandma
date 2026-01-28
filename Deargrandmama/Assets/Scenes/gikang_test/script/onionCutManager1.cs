@@ -1,17 +1,17 @@
 using UnityEngine;
 
-public class SausageCutManager : MonoBehaviour
+public class onionCutManager1 : MonoBehaviour
 {
     [Header("Cut Settings")]
     [Tooltip("전체(소시지 2개 합산) 몇 번 썰면 성공인지")]
-    public int requiredCuts = 8;
+    public int requiredCuts = 6;
 
     private int totalCutCount = 0;
     private bool successSent = false;
 
     [Header("Timer (Success UI Controller)")]
     [Tooltip("성공 패널을 띄우는 타이머/컨트롤러 스크립트")]
-    [SerializeField] private sosigecontrol timerController;
+    [SerializeField] private onioncontrol timerController;
     
 
     public void RegisterCut()
