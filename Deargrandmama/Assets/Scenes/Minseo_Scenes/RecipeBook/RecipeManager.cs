@@ -37,6 +37,10 @@ public class RecipeManager : MonoBehaviour
             // 1번 버튼 (양파)
             stepButtons[1].onClick.RemoveAllListeners();
             stepButtons[1].onClick.AddListener(() => OnStepClick("OnionSlicing"));
+
+            // 2번 버튼 (캔따기)
+            stepButtons[2].onClick.RemoveAllListeners();
+            stepButtons[2].onClick.AddListener(() => OnStepClick("CanOpen"));
         }
     }
 

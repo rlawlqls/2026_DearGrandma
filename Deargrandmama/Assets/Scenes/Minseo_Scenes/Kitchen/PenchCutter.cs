@@ -7,60 +7,54 @@ public class PenchCutter : MonoBehaviour
     [SerializeField] private PenchCursorFollow follow;
     [SerializeField] private Camera cam;
 
-    [Header("Layers")]
-    [SerializeField] private LayerMask cuttableLayer;
-
-    [Header("Rules")]
-    [SerializeField] private float minDragDistance = 0.6f;
-    [SerializeField] private float startCheckRadius = 0.05f;
-    [SerializeField] private float cutCooldown = 0.10f;
-
     [Header("Visual")]
-    [SerializeField] private LineRenderer dragLine;
-    [SerializeField] private float pointMinDistance = 0.05f;
-
-    // ✅ 불필요한 List 삭제하고 하나의 매니저만 사용하거나, 
-    // 필요하다면 매니저에서 현재 라인을 가져오도록 단순화함
-    [Header("Manager")]
-    [SerializeField] private GuideLineManager lineManager;
+    [SerializeField] private LineRenderer dragLine; // 선을 그릴 라인 렌더러
+    [SerializeField] private float pointMinDistance = 0.05f; // 점 사이의 최소 간격
 
     private List<Vector3> dragPoints = new List<Vector3>();
-    private Vector2 dragStartWorld;
     private bool isDragging;
-    private float lastCutTime = -999f;
 
     private void Awake()
     {
         if (cam == null) cam = Camera.main;
         if (follow == null) follow = GetComponent<PenchCursorFollow>();
-        if (dragLine != null) dragLine.enabled = false;
+
+        // 시작할 때 라인 초기화
+        if (dragLine != null)
+        {
+            dragLine.enabled = false;
+            dragLine.positionCount = 0;
+        }
     }
 
     private void Update()
     {
-        // 펜치 기능이 활성화(followOn) 되었을 때만 작동
+        // 펜치를 들고 있을 때만 작동
         if (follow != null && !follow.followOn) return;
 
+        // 마우스 클릭 시 그리기 시작
         if (Input.GetMouseButtonDown(0)) StartDrag();
+
+        // 드래그 중 선 업데이트
         if (isDragging) UpdateDragLine();
-        if (Input.GetMouseButtonUp(0) && isDragging) EndDragAndCut();
+
+        // 마우스 떼면 그리기 종료
+        if (Input.GetMouseButtonUp(0)) EndDrag();
     }
 
     private void StartDrag()
     {
         isDragging = true;
-        Vector3 start = cam.ScreenToWorldPoint(Input.mousePosition);
-        start.z = 0f;
-        dragStartWorld = start;
-
         dragPoints.Clear();
-        dragPoints.Add(start);
+
+        Vector3 startPos = GetMouseWorldPosition();
+        dragPoints.Add(startPos);
 
         if (dragLine != null)
         {
             dragLine.enabled = true;
             dragLine.positionCount = 1;
-            dragLine.SetPosition(0, start);
+            dragLine.SetPosition(0, startPos);
         }
     }
 
@@ -68,56 +62,33 @@ public class PenchCutter : MonoBehaviour
     {
         if (dragLine == null) return;
 
-        Vector3 current = cam.ScreenToWorldPoint(Input.mousePosition);
-        current.z = 0f;
+        Vector3 currentPos = GetMouseWorldPosition();
 
+        // 마지막 점과 현재 마우스 위치가 일정 거리 이상일 때만 점 추가 (최적화)
         if (dragPoints.Count > 0 &&
-            Vector3.Distance(dragPoints[dragPoints.Count - 1], current) < pointMinDistance)
+            Vector3.Distance(dragPoints[dragPoints.Count - 1], currentPos) < pointMinDistance)
             return;
 
-        dragPoints.Add(current);
+        dragPoints.Add(currentPos);
         dragLine.positionCount = dragPoints.Count;
-        dragLine.SetPosition(dragPoints.Count - 1, current);
+        dragLine.SetPosition(dragPoints.Count - 1, currentPos);
     }
 
-    private void EndDragAndCut()
+    private void EndDrag()
     {
         isDragging = false;
-        if (dragLine != null) dragLine.enabled = false;
+        // 필요하다면 여기서 선을 지우지 않고 유지할 수도 있어. 
+        // 만약 마우스를 뗄 때 선을 바로 지우고 싶다면 아래 주석을 해제해.
+        // if (dragLine != null) dragLine.enabled = false;
+    }
 
-        if (dragPoints.Count < 2) return;
-
-        Vector2 dragEndWorld = (Vector2)dragPoints[dragPoints.Count - 1];
-        if (Vector2.Distance(dragStartWorld, dragEndWorld) < minDragDistance) return;
-        if (Time.time - lastCutTime < cutCooldown) return;
-
-        // ✅ 에러 방지: lineManager가 있는지, 그 안에 CurrentLine이 있는지 확인
-        if (lineManager == null || lineManager.CurrentLine == null)
-        {
-            Debug.LogWarning("LineManager 또는 CurrentLine이 설정되지 않았습니다.");
-            return;
-        }
-
-        guideline currentLine = lineManager.CurrentLine;
-
-        // 가이드라인 판정 (IsSlashValid 호출)
-        if (currentLine.IsSlashValid(dragStartWorld, dragEndWorld))
-        {
-            // 가이드라인 중심부에서 재료(CuttableObject) 감지
-            Vector2 mid = (currentLine.startPoint.position + currentLine.endPoint.position) * 0.5f;
-            float r = currentLine.tolerance + 0.1f;
-
-            Collider2D col = Physics2D.OverlapCircle(mid, r, cuttableLayer);
-            if (col != null)
-            {
-                CuttableObject cuttable = col.GetComponent<CuttableObject>();
-                if (cuttable != null)
-                {
-                    cuttable.ApplyOneCut();
-                    lastCutTime = Time.time;
-                    lineManager.Advance(); // 성공 시 다음 가이드라인으로
-                }
-            }
-        }
+    private Vector3 GetMouseWorldPosition()
+    {
+        Vector3 mousePos = Input.mousePosition;
+        // 카메라와의 거리 (2D 씬 환경에 맞춰 조정)
+        mousePos.z = Mathf.Abs(cam.transform.position.z);
+        Vector3 worldPos = cam.ScreenToWorldPoint(mousePos);
+        worldPos.z = -1f; // 2D 평면 고정
+        return worldPos;
     }
 }
