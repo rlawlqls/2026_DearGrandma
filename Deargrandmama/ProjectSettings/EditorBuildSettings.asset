@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Minseo_Scenes/RecipeBook.unity
     guid: 478c35f315fecf04ca64418fe2922db6
+  - enabled: 1
+    path: Assets/Scenes/Minseo_Scenes/OnionSlicing.unity
+    guid: c50d38b348736c94c97009ed3d1c8f86
+  - enabled: 1
+    path: Assets/Scenes/Minseo_Scenes/SoursageSlicing.unity
+    guid: 3e23a6c1d6ff3474ea4ef901571280b0
   m_configObjects: {}
