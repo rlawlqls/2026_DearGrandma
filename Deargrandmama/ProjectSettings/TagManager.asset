@@ -10,12 +10,12 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - board
   - Water
   - UI
   - cuttable
-  - 
-  - 
+  - ingredient
+  - guideline
   - 
   - 
   - 
@@ -43,6 +43,9 @@ TagManager:
   - name: Background
     uniqueID: 4029087029
     locked: 0
+  - name: board
+    uniqueID: 3423047781
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
@@ -51,4 +54,10 @@ TagManager:
     locked: 0
   - name: ToolEffect
     uniqueID: 1931577349
+    locked: 0
+  - name: ingredient
+    uniqueID: 864775475
+    locked: 0
+  - name: guidline
+    uniqueID: 438388551
     locked: 0

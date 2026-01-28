@@ -433,6 +433,7 @@ MonoBehaviour:
   currentStage: 0
   useOverrideMaxStage: 1
   overrideMaxStage: 7
+  sausageManager: {fileID: 0}
   onStageChanged:
     m_PersistentCalls:
       m_Calls: []
