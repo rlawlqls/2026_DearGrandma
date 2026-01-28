@@ -48,3 +48,6 @@ TagManager:
   - name: Foreground
     uniqueID: 425570047
     locked: 0
+  - name: ToolEffect
+    uniqueID: 1931577349
+    locked: 0

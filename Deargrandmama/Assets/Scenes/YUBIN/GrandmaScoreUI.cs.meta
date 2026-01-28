@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: e476e07f7dd084a7ea1a0606e20fcd8f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - grandmaImage: {instanceID: 0}
+  - score500: {fileID: 21300000, guid: bf9694be09a0c49ce9f297850bbdbe6e, type: 3}
+  - score400: {fileID: 21300000, guid: e012925b744354985927b6b13a78a1fb, type: 3}
+  - score350: {fileID: 21300000, guid: 79e13a03c37a34a9e89160428a47d9d7, type: 3}
+  - score0: {fileID: 21300000, guid: 7ae9d7d0c047e4474886362c60b27f74, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
