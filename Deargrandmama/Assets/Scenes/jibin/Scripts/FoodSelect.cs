@@ -11,13 +11,14 @@ public class FoodSelect : MonoBehaviour
         Debug.Log("Chicken 버튼 클릭됨");
 
         // 실제 씬 이름으로 바꿔줘!
-        SceneManager.LoadScene("RecipeBook");
+       
     }
 
     // 🍝 Spaghetti 버튼
     public void OnClickSpaghetti()
     {
         Debug.Log("Spaghetti 버튼 클릭됨");
+        SceneManager.LoadScene("RecipeBook");
     }
 
     // 🍗 Inasal 버튼
