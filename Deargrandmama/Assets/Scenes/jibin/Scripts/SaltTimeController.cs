@@ -77,6 +77,11 @@ public class SaltTimeController : MonoBehaviour
             SaltSuccessPanel.SetActive(true);
 
         Debug.Log("⏱ 타이머 멈춤 (성공)");
+        StartCoroutine(GoToNextScene());
     }
-
+    IEnumerator GoToNextScene()
+    {
+        yield return new WaitForSecondsRealtime(2f); // 타임스케일 영향 X
+        SceneManager.LoadScene("NuddleMix");
     }
+}
