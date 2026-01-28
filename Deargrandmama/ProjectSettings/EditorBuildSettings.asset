@@ -21,17 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Minseo_Scenes/RecipeBook/RecipeBook.unity
     guid: 478c35f315fecf04ca64418fe2922db6
   - enabled: 1
-    path: Assets/Scenes/Minseo_Scenes/Kitchen/SoursageSlicing.unity
-    guid: 3e23a6c1d6ff3474ea4ef901571280b0
-  - enabled: 1
-<<<<<<< HEAD
     path: Assets/Scenes/Minseo_Scenes/Kitchen/onionslice.unity
     guid: 878fc395164a1d64fbc76d24ebebdb33
-=======
-    path: Assets/Scenes/Seoyun/Spaghetti.unity
-    guid: 414249d6d0f1e744a9767bc5f9b53b78
   - enabled: 1
-    path: Assets/Scenes/Seoyun/FinalEvaluation.unity
-    guid: 20b61f9186e4c264389771de06fcc50b
->>>>>>> 55ce3f2662b012df83337206d4c35e848e7817ee
+    path: Assets/Scenes/Minseo_Scenes/Kitchen/SoursageSlicing.unity
+    guid: 3e23a6c1d6ff3474ea4ef901571280b0
   m_configObjects: {}
