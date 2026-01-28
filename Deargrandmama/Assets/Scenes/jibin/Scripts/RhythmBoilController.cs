@@ -22,8 +22,10 @@ public class RhythmBoilController : MonoBehaviour
 
     [Header("Panels")]
     public GameObject rhythmGamePanel;
-    public GameObject successPanel;
+    public GameObject BoilSuccessPanel;
+    public GameObject BoilFailPanel;
 
+    [Header("Settings")]
     public float barSpeed = 400f;
     public int maxRounds = 5;
 
@@ -33,14 +35,21 @@ public class RhythmBoilController : MonoBehaviour
     private float minX, maxX;
 
     private bool inputLocked = false;
+    private int attemptCount = 0;
 
     void Start()
     {
         rhythmGamePanel.SetActive(false);
-        successPanel.SetActive(false);
+        BoilSuccessPanel.SetActive(false);
+        BoilFailPanel.SetActive(false);
+
+        successZone.gameObject.SetActive(true); // ⭐ 노란 영역 항상 켜기
 
         foreach (var slot in progressSlots)
+        {
+            slot.gameObject.SetActive(false);
             slot.color = defaultColor;
+        }
     }
 
     void Update()
@@ -50,18 +59,20 @@ public class RhythmBoilController : MonoBehaviour
         MoveBar();
 
         if (Input.GetKeyDown(KeyCode.Space))
+        {
             CheckSuccess();
+        }
     }
-
 
     // 🍝 면을 냄비에 넣었을 때 호출
     public void StartBoiling()
     {
-        potImage.sprite = potInNu1; // ⭐ 1단계 냄비
+        potImage.sprite = potInNu1;
         rhythmGamePanel.SetActive(true);
 
         successCount = 0;
         UpdateFireUI();
+
         StartRound();
     }
 
@@ -69,28 +80,35 @@ public class RhythmBoilController : MonoBehaviour
     {
         isPlaying = true;
 
-        // 막대 초기화
+        // ⭐ 바 이동 범위 설정 (중요!!)
+        float halfWidth = barArea.rect.width / 2f;
+        minX = -halfWidth;
+        maxX = halfWidth;
+
+        // 바 초기 위치
         movingBar.anchoredPosition =
-            new Vector2(-barArea.rect.width / 2, movingBar.anchoredPosition.y);
+            new Vector2(minX, movingBar.anchoredPosition.y);
+
         movingRight = true;
 
-        // ⭐️ 여기!
+        // 노란 영역 랜덤 이동
         MoveSuccessZoneRandom();
     }
+
     void MoveSuccessZoneRandom()
     {
         float barWidth = barArea.rect.width;
         float zoneWidth = successZone.rect.width;
 
-        // BarArea 안에서 벗어나지 않게 X 범위 계산
-        float minX = -barWidth / 2 + zoneWidth / 2;
-        float maxX = barWidth / 2 - zoneWidth / 2;
+        float zoneMinX = -barWidth / 2 + zoneWidth / 2;
+        float zoneMaxX = barWidth / 2 - zoneWidth / 2;
 
-        float randomX = Random.Range(minX, maxX);
+        float randomX = Random.Range(zoneMinX, zoneMaxX);
 
         successZone.anchoredPosition =
             new Vector2(randomX, successZone.anchoredPosition.y);
     }
+
     void MoveBar()
     {
         float move = barSpeed * Time.deltaTime;
@@ -105,31 +123,43 @@ public class RhythmBoilController : MonoBehaviour
     }
 
     void CheckSuccess()
+{
+    if (inputLocked) return;
+
+    inputLocked = true;
+    isPlaying = false;
+
+    attemptCount++; // ⭐ 도전 횟수 증가
+
+    float barX = movingBar.anchoredPosition.x;
+    float zoneMin = successZone.anchoredPosition.x - successZone.rect.width / 2;
+    float zoneMax = successZone.anchoredPosition.x + successZone.rect.width / 2;
+
+    // 🎯 성공 판정
+    if (barX >= zoneMin && barX <= zoneMax)
     {
-        float barX = movingBar.anchoredPosition.x;
-
-        float zoneMin = successZone.anchoredPosition.x - successZone.rect.width / 2;
-        float zoneMax = successZone.anchoredPosition.x + successZone.rect.width / 2;
-
-        if (barX >= zoneMin && barX <= zoneMax)
-        {
-            successCount++;
-
-            UpdateFireUI();   // 🔥 불 켜기
-            UpdatePotImage(); // 냄비 이미지 변경
-
-            if (successCount >= maxRounds)
-            {
-                FinishBoiling();
-            }
-            else
-            {
-                StartRound(); // 다음 도전
-            }
-        }
+        successCount++;
+        UpdateFireUI();
+        UpdatePotImage();
     }
 
-    // 🟢 성공 UI 업데이트
+    // 🎉 성공 조건
+    if (successCount >= maxRounds)
+    {
+            FinishBoilingSuccess();   // 성공 패널
+    }
+    // ❌ 실패 조건 (기회 다 씀)
+    else if (attemptCount >= maxRounds)
+    {
+        FinishBoilingFail(); // 실패 패널 또는 다음 씬
+    }
+    else
+    {
+        StartCoroutine(NextRoundDelay());
+    }
+}
+
+    // 🔥 불 UI 업데이트
     void UpdateFireUI()
     {
         for (int i = 0; i < progressSlots.Length; i++)
@@ -141,26 +171,52 @@ public class RhythmBoilController : MonoBehaviour
     // 🍲 냄비 이미지 단계 변경
     void UpdatePotImage()
     {
-        if (successCount == 3)
-            potImage.sprite = nuddleLeft;
-
-        if (successCount == 5)
+        if (successCount >= 5)
+        {
             potImage.sprite = potInNu2;
+        }
+        else if (successCount >= 3)
+        {
+            potImage.sprite = nuddleLeft;
+        }
+        else if (successCount >= 1)
+        {
+            potImage.sprite = potInNu1;
+        }
     }
+
 
     // 🎉 최종 성공
-    void FinishBoiling()
+    void FinishBoilingSuccess()
     {
         isPlaying = false;
-        rhythmGamePanel.SetActive(false);
-        successPanel.SetActive(true);
+        inputLocked = true;
+
+        // 리듬게임 화면은 그대로 두거나, 필요하면 꺼도 됨
+        // rhythmGamePanel.SetActive(false);
+
+        BoilSuccessPanel.SetActive(true);
+
+        Time.timeScale = 0f; // ⭐ 여기서 "멈춤"
     }
+    void FinishBoilingFail()
+    {
+        isPlaying = false;
+        inputLocked = true;
+
+        BoilFailPanel.SetActive(true);   // 실패 패널
+                                     // rhythmGamePanel.SetActive(false);
+
+        Time.timeScale = 0f;         // 게임 멈춤
+    }
+
+
+    // ⏱ 다음 라운드 딜레이
     IEnumerator NextRoundDelay()
     {
         inputLocked = true;
-        yield return new WaitForSeconds(0.15f); // 0.1~0.2 추천
+        yield return new WaitForSeconds(0.15f); // 체감 좋음
         inputLocked = false;
         StartRound();
     }
-
 }
