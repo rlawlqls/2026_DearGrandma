@@ -5,19 +5,25 @@ using UnityEngine.Events;
 
 public class CuttableObject : MonoBehaviour
 {
-    
     /* ==============================
-     * 1. 비주얼 데이터
+     * 1. 비주얼 데이터 (Prefab Stage)
      * ============================== */
 
-    [Header("Renderer")]
-    [SerializeField] private SpriteRenderer targetRenderer;
+    [Header("Visual Root (Optional)")]
+    [Tooltip("단계 프리팹이 생성될 부모 Transform. 비워두면 이 오브젝트 자신이 부모가 됩니다.")]
+    [SerializeField] private Transform visualRoot;
 
-    [Header("Stage Sprites (Optional)")]
-    [SerializeField] private Sprite[] stageSprites;
+    [Header("Stage Prefabs")]
+    [Tooltip("0단계(원본) ~ 마지막 단계(완전 썰림) 까지 순서대로 프리팹을 넣으세요.")]
+    [SerializeField] private GameObject[] stagePrefabs;
 
-    [Header("Stage Colors (Debug / Placeholder)")]
-    [SerializeField] private Color[] stageColors;
+    [Header("Keep Local Transform")]
+    [Tooltip("각 단계 프리팹 생성 시 localPosition/localRotation/localScale 을 고정할지 여부")]
+    [SerializeField] private bool resetLocalTransform = true;
+
+    [SerializeField] private Vector3 fixedLocalPosition = Vector3.zero;
+    [SerializeField] private Vector3 fixedLocalRotationEuler = Vector3.zero;
+    [SerializeField] private Vector3 fixedLocalScale = Vector3.one;
 
     /* ==============================
      * 2. 진행 상태
@@ -35,20 +41,25 @@ public class CuttableObject : MonoBehaviour
     public UnityEvent onFullyCut;
 
     /* ==============================
-     * 4. 초기화
+     * 4. 내부 캐시
+     * ============================== */
+
+    private GameObject currentVisualInstance;
+
+    /* ==============================
+     * 5. 초기화
      * ============================== */
 
     private void Awake()
     {
-        // SpriteRenderer 자동 할당
-        if (targetRenderer == null)
-            targetRenderer = GetComponent<SpriteRenderer>();
+        if (visualRoot == null)
+            visualRoot = transform;
 
         ApplyStageVisual();
     }
 
     /* ==============================
-     * 5. 외부에서 쓰는 API
+     * 6. 외부에서 쓰는 API
      * ============================== */
 
     /// <summary>
@@ -78,42 +89,53 @@ public class CuttableObject : MonoBehaviour
 
         if (IsFullyCut)
             onFullyCut?.Invoke();
+
         Debug.Log($"Stage = {currentStage}");
     }
 
     /* ==============================
-     * 6. 내부 로직
+     * 7. 내부 로직
      * ============================== */
 
     private int GetMaxStage()
     {
-        if (stageSprites != null && stageSprites.Length > 0)
-            return stageSprites.Length - 1;
-
-        if (stageColors != null && stageColors.Length > 0)
-            return stageColors.Length - 1;
+        if (stagePrefabs != null && stagePrefabs.Length > 0)
+            return stagePrefabs.Length - 1;
 
         return 0;
     }
 
-   private void ApplyStageVisual()
+private void ApplyStageVisual()
 {
-    if (targetRenderer == null) return;
-
-    // Sprite 적용(있으면)
-    if (stageSprites != null && stageSprites.Length > 0)
+    if (currentVisualInstance != null)
     {
-        int idx = Mathf.Clamp(currentStage, 0, stageSprites.Length - 1);
-        targetRenderer.sprite = stageSprites[idx];
+        Destroy(currentVisualInstance);
+        currentVisualInstance = null;
     }
 
-    // Color 적용(있으면)
-    if (stageColors != null && stageColors.Length > 0)
+    if (stagePrefabs == null || stagePrefabs.Length == 0)
     {
-        int idx = Mathf.Clamp(currentStage, 0, stageColors.Length - 1);
-        targetRenderer.color = stageColors[idx];
-        Debug.Log($"Applied Color idx={idx} color={stageColors[idx]}");
+        Debug.LogWarning("[Cuttable] stagePrefabs is empty!");
+        return;
+    }
+
+    int idx = Mathf.Clamp(currentStage, 0, stagePrefabs.Length - 1);
+    GameObject prefab = stagePrefabs[idx];
+
+    if (prefab == null)
+    {
+        Debug.LogWarning($"[Cuttable] stagePrefabs[{idx}] is null!");
+        return;
+    }
+
+    currentVisualInstance = Instantiate(prefab, visualRoot);
+    Debug.Log($"[Cuttable] Instantiated stage={idx} prefab={prefab.name} parent={visualRoot.name}");
+
+    if (resetLocalTransform)
+    {
+        currentVisualInstance.transform.localPosition = fixedLocalPosition;
+        currentVisualInstance.transform.localRotation = Quaternion.Euler(fixedLocalRotationEuler);
+        currentVisualInstance.transform.localScale = fixedLocalScale;
     }
 }
-    
 }
