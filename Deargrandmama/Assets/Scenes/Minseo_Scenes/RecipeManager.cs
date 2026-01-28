@@ -28,9 +28,14 @@ public class RecipeManager : MonoBehaviour
         UpdateRecipeProgress(currentStep);
 
         // 3. 버튼 클릭 이벤트들 연결
-        if (stepButtons.Length >= 8)
+        if (stepButtons.Length >= 2)
         {
+            // 0번 버튼 (소시지)
+            stepButtons[0].onClick.RemoveAllListeners(); // 기존 설정 초기화
             stepButtons[0].onClick.AddListener(() => OnStepClick("SoursageSlicing"));
+
+            // 1번 버튼 (양파)
+            stepButtons[1].onClick.RemoveAllListeners();
             stepButtons[1].onClick.AddListener(() => OnStepClick("OnionSlicing"));
         }
     }
