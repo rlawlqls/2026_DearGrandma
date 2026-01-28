@@ -38,6 +38,7 @@ public class CuttableObject : MonoBehaviour
 
     [Tooltip("마지막 스테이지 인덱스 (예: 7이면 0~7 총 8단계)")]
     [SerializeField] private int overrideMaxStage = 7;
+    [SerializeField] private SausageCutManager sausageManager;
     
 
     /* ==============================
@@ -54,7 +55,7 @@ public class CuttableObject : MonoBehaviour
 
     [Header("Optional - Timer Controller")]
     [Tooltip("완전 썰림 시 성공 패널을 띄우고 싶으면 연결하세요.")]
-    [SerializeField] private CanOpenTimerController timerController;
+    [SerializeField] private sosigecontrol timerController;
 
     /* ==============================
      * 5. 내부 캐시
@@ -90,23 +91,30 @@ public class CuttableObject : MonoBehaviour
     public bool IsFullyCut => currentStage >= GetMaxStage();
 
     /// <summary>"썰기 1회 성공" 시 호출</summary>
-    public void ApplyOneCut()
-    {
-        if (IsFullyCut) return;
+public void ApplyOneCut()
+{
+    // ✅ 1) 무조건 부모에게 "컷 1회" 보고 (총 8회 카운트용)
+    if (sausageManager != null)
+        sausageManager.RegisterCut();
+    else
+        Debug.LogWarning("[Cuttable] sausageManager is NULL (Inspector 연결 필요)");
 
-        currentStage++;
-        currentStage = Mathf.Clamp(currentStage, 0, GetMaxStage());
+    // ✅ 2) 비주얼 단계는 끝나면 더 이상 진행 안 함
+    if (IsFullyCut) return;
 
-        ApplyStageVisual();
-        onStageChanged?.Invoke();
+    currentStage++;
+    currentStage = Mathf.Clamp(currentStage, 0, GetMaxStage());
 
-        if (IsFullyCut)
-            InvokeFullyCutOnce();
+    ApplyStageVisual();
+    onStageChanged?.Invoke();
 
-        Debug.Log($"[Cuttable] Stage = {currentStage}");
+    if (IsFullyCut)
+        InvokeFullyCutOnce();
+
+    Debug.Log($"[Cuttable] Stage = {currentStage}");
+}
 
 
-    }
 
     /// <summary>필요하면 외부에서 강제로 스테이지 세팅</summary>
     public void SetStage(int stage)
