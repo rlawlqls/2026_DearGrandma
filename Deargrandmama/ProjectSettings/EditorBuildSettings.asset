@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/jibin/Second.unity
     guid: e1be5b507c0698144a7139b31d077119
   - enabled: 1
-    path: Assets/Scenes/Seoyun/story.unity
+    path: Assets/Scenes/Minseo_Scenes/Seoyun/story.unity
     guid: c4ac69d290648ae48a032e6b064b5de6
   - enabled: 1
     path: Assets/Scenes/jibin/FoodSelect.unity
@@ -21,12 +21,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Minseo_Scenes/RecipeBook/RecipeBook.unity
     guid: 478c35f315fecf04ca64418fe2922db6
   - enabled: 1
-    path: Assets/Scenes/Minseo_Scenes/Kitchen/onionslice.unity
-    guid: 878fc395164a1d64fbc76d24ebebdb33
+    path: Assets/Scenes/Minseo_Scenes/Kitchen/onion.unity
+    guid: e025a04c1eb7f454ca87c03b27dfca41
   - enabled: 1
     path: Assets/Scenes/Minseo_Scenes/Kitchen/SoursageSlicing.unity
     guid: 3e23a6c1d6ff3474ea4ef901571280b0
   - enabled: 1
     path: Assets/Scenes/Minseo_Scenes/Kitchen/CanOpen.unity
     guid: c2839d8421769f14b9eaffcdee7f0345
+  - enabled: 1
+    path: Assets/Scenes/jibin/NuddleMix.unity
+    guid: 4e4b1e27b9981cc489948ca08227a44a
+  - enabled: 1
+    path: Assets/Scenes/jibin/MoveSalt.unity
+    guid: 422733a4a1311e2478c2cb5dd5b72722
   m_configObjects: {}

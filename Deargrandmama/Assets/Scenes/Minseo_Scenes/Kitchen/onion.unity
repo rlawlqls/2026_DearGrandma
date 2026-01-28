@@ -316,7 +316,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 291967816}
-        m_TargetAssemblyTypeName: sosigecontrol, Assembly-CSharp
+        m_TargetAssemblyTypeName: onioncontrol, Assembly-CSharp
         m_MethodName: OnNextGameButtonClick
         m_Mode: 1
         m_Arguments:
@@ -687,7 +687,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 291967813}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5811a333ae0009748bf59327428d8288, type: 3}
+  m_Script: {fileID: 11500000, guid: 23a6317a23b1b17498dc7ba336fde383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   totalTime: 20
@@ -1984,7 +1984,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 291967816}
-        m_TargetAssemblyTypeName: sosigecontrol, Assembly-CSharp
+        m_TargetAssemblyTypeName: onioncontrol, Assembly-CSharp
         m_MethodName: OnNextGameButtonClick
         m_Mode: 1
         m_Arguments:
@@ -3076,7 +3076,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requiredCuts: 6
-  timerController: {fileID: 291967816}
+  timerController: {fileID: 0}
 --- !u!4 &1973560211
 Transform:
   m_ObjectHideFlags: 0

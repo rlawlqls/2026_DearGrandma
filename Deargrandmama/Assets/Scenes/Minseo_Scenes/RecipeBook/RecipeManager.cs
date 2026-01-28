@@ -36,7 +36,7 @@ public class RecipeManager : MonoBehaviour
 
             // 1번 버튼 (양파)
             stepButtons[1].onClick.RemoveAllListeners();
-            stepButtons[1].onClick.AddListener(() => OnStepClick("onionslice"));
+            stepButtons[1].onClick.AddListener(() => OnStepClick("onion"));
 
             // 2번 버튼 (캔따기)
             stepButtons[2].onClick.RemoveAllListeners();
