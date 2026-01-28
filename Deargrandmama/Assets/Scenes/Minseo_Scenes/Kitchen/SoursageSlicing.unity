@@ -326,7 +326,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 291967814}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TimerController, Assembly-CSharp
         m_MethodName: OnNextGameButtonClick
         m_Mode: 1
@@ -661,7 +661,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 291967815}
-  - component: {fileID: 291967814}
+  - component: {fileID: 291967816}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -669,21 +669,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &291967814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 291967813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56ab1b9f680b84f4aa86815252d2d3f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  totalTime: 20
-  timerFillImage: {fileID: 305452440}
-  timeoutPanel: {fileID: 76952059}
 --- !u!4 &291967815
 Transform:
   m_ObjectHideFlags: 0
@@ -699,6 +684,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &291967816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291967813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56ab1b9f680b84f4aa86815252d2d3f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalTime: 20
+  timerFillImage: {fileID: 305452440}
+  timeoutPanel: {fileID: 76952059}
 --- !u!1 &305452439
 GameObject:
   m_ObjectHideFlags: 0
@@ -1930,7 +1930,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 291967814}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TimerController, Assembly-CSharp
         m_MethodName: OnNextGameButtonClick
         m_Mode: 1
@@ -3131,6 +3131,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4257176244862115651, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
+      propertyPath: onFullyCut.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257176244862115651, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
+      propertyPath: onFullyCut.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257176244862115651, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
+      propertyPath: onFullyCut.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 273209360}
+    - target: {fileID: 4257176244862115651, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
+      propertyPath: onFullyCut.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4257176245081881301, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
       propertyPath: m_Name
       value: SausageRoot

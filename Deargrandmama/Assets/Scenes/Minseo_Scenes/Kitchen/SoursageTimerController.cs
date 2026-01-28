@@ -1,13 +1,13 @@
 using UnityEngine;
-using UnityEngine.UI; // ÀÌ¹ÌÁö Á¦¾î¸¦ À§ÇØ ÇÊ¼ö!
+using UnityEngine.UI; // ì´ë¯¸ì§€ ì œì–´ë¥¼ ìœ„í•´ í•„ìˆ˜!
 using UnityEngine.SceneManagement;
 
 public class CanOpenTimerController : MonoBehaviour
 {
-    public float totalTime = 20f; // ÃÑ ½Ã°£ (20ÃÊ)
+    public float totalTime = 20f; // ì´ ì‹œê°„ (20ì´ˆ)
     private float currentTime;
 
-    public Image timerFillImage; // ±ğ¿©³ª°¥ ½Ã°è °ÔÀÌÁö ÀÌ¹ÌÁö
+    public Image timerFillImage; // ê¹ì—¬ë‚˜ê°ˆ ì‹œê³„ ê²Œì´ì§€ ì´ë¯¸ì§€
 
     public GameObject timeoutPanel;
 
@@ -38,7 +38,7 @@ public class CanOpenTimerController : MonoBehaviour
         if (timeoutPanel != null && !timeoutPanel.activeSelf)
         {
             timeoutPanel.SetActive(true);
-            // ¿©±â¼­ °ÔÀÓÀ» ¸ØÃß°í ½Í´Ù¸é ¾Æ·¡ ÁÙ ÁÖ¼®À» ÇØÁ¦ÇØ
+            // ì—¬ê¸°ì„œ ê²Œì„ì„ ë©ˆì¶”ê³  ì‹¶ë‹¤ë©´ ì•„ë˜ ì¤„ ì£¼ì„ì„ í•´ì œí•´
             // Time.timeScale = 0; 
         }
     }
@@ -48,18 +48,18 @@ public class CanOpenTimerController : MonoBehaviour
         if (timerFillImage != null)
         {
             float maxFill = 0.33f;
-            // ÇöÀç ³²Àº ½Ã°£À» ÃÑ ½Ã°£À¸·Î ³ª´²¼­ 0~1 »çÀÌ °ªÀ¸·Î º¯È¯
+            // í˜„ì¬ ë‚¨ì€ ì‹œê°„ì„ ì´ ì‹œê°„ìœ¼ë¡œ ë‚˜ëˆ ì„œ 0~1 ì‚¬ì´ ê°’ìœ¼ë¡œ ë³€í™˜
             timerFillImage.fillAmount = (currentTime / totalTime) * maxFill;
         }
     }
 
     public void OnNextGameButtonClick()
     {
-        // 1. ´ÙÀ½ ´Ü°è(1¹ø: ¾çÆÄ ½ä±â)·Î ÁøÇàµµ ÀúÀå
+        // 1. ë‹¤ìŒ ë‹¨ê³„(1ë²ˆ: ì–‘íŒŒ ì°ê¸°)ë¡œ ì§„í–‰ë„ ì €ì¥
         PlayerPrefs.SetInt("RecipeStep", 1);
-        PlayerPrefs.Save(); // µ¥ÀÌÅÍ ¾ÈÀüÇÏ°Ô ÀúÀå
+        PlayerPrefs.Save(); // ë°ì´í„° ì•ˆì „í•˜ê²Œ ì €ì¥
 
-        // 2. ´Ù½Ã ¿ä¸®Ã¥ ¾ÀÀ¸·Î ÀÌµ¿ (¾À ÀÌ¸§ ´ë¼Ò¹®ÀÚ ÁÖÀÇ!)
+        // 2. ë‹¤ì‹œ ìš”ë¦¬ì±… ì”¬ìœ¼ë¡œ ì´ë™ (ì”¬ ì´ë¦„ ëŒ€ì†Œë¬¸ì ì£¼ì˜!)
         SceneManager.LoadScene("RecipeBook");
     }
 }
