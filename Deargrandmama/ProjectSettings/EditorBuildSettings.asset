@@ -35,4 +35,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/jibin/MoveSalt.unity
     guid: 422733a4a1311e2478c2cb5dd5b72722
+  - enabled: 1
+    path: Assets/Scenes/Minseo_Scenes/Seoyun/Spaghetti.unity
+    guid: 414249d6d0f1e744a9767bc5f9b53b78
+  - enabled: 1
+    path: Assets/Scenes/Minseo_Scenes/Seoyun/FinalEvaluation.unity
+    guid: 20b61f9186e4c264389771de06fcc50b
   m_configObjects: {}
