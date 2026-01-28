@@ -32,6 +32,14 @@ public class CuttableObject : MonoBehaviour
     [Header("Progress")]
     [SerializeField] private int currentStage = 0;
 
+    [Header("Stage Settings")]
+    [Tooltip("true면 마지막 스테이지를 강제로 지정합니다. (예: 7)")]
+    [SerializeField] private bool useOverrideMaxStage = true;
+
+    [Tooltip("마지막 스테이지 인덱스 (예: 7이면 0~7 총 8단계)")]
+    [SerializeField] private int overrideMaxStage = 7;
+    
+
     /* ==============================
      * 3. 이벤트
      * ============================== */
@@ -41,13 +49,22 @@ public class CuttableObject : MonoBehaviour
     public UnityEvent onFullyCut;
 
     /* ==============================
-     * 4. 내부 캐시
+     * 4. 성공 연결 (선택)
+     * ============================== */
+
+    [Header("Optional - Timer Controller")]
+    [Tooltip("완전 썰림 시 성공 패널을 띄우고 싶으면 연결하세요.")]
+    [SerializeField] private CanOpenTimerController timerController;
+
+    /* ==============================
+     * 5. 내부 캐시
      * ============================== */
 
     private GameObject currentVisualInstance;
+    private bool fullyCutInvoked = false; // 중복 호출 방지
 
     /* ==============================
-     * 5. 초기화
+     * 6. 초기화
      * ============================== */
 
     private void Awake()
@@ -55,28 +72,24 @@ public class CuttableObject : MonoBehaviour
         if (visualRoot == null)
             visualRoot = transform;
 
+        // 혹시 currentStage가 이상하게 저장돼 있어도 안전하게
+        currentStage = Mathf.Clamp(currentStage, 0, GetMaxStage());
+
         ApplyStageVisual();
+
+        // 시작부터 이미 완전 썰림 상태면(테스트용), 이벤트 처리
+        if (IsFullyCut)
+            InvokeFullyCutOnce();
     }
 
     /* ==============================
-     * 6. 외부에서 쓰는 API
+     * 7. 외부에서 쓰는 API
      * ============================== */
 
-    /// <summary>
-    /// 현재 재료가 완전히 썰렸는지 여부
-    /// </summary>
-    public bool IsFullyCut
-    {
-        get
-        {
-            int maxStage = GetMaxStage();
-            return currentStage >= maxStage;
-        }
-    }
+    /// <summary>현재 재료가 완전히 썰렸는지 여부</summary>
+    public bool IsFullyCut => currentStage >= GetMaxStage();
 
-    /// <summary>
-    /// "썰기 1회 성공" 시 호출
-    /// </summary>
+    /// <summary>"썰기 1회 성공" 시 호출</summary>
     public void ApplyOneCut()
     {
         if (IsFullyCut) return;
@@ -88,54 +101,85 @@ public class CuttableObject : MonoBehaviour
         onStageChanged?.Invoke();
 
         if (IsFullyCut)
-            onFullyCut?.Invoke();
+            InvokeFullyCutOnce();
 
-        Debug.Log($"Stage = {currentStage}");
+        Debug.Log($"[Cuttable] Stage = {currentStage}");
+
+
+    }
+
+    /// <summary>필요하면 외부에서 강제로 스테이지 세팅</summary>
+    public void SetStage(int stage)
+    {
+        currentStage = Mathf.Clamp(stage, 0, GetMaxStage());
+        ApplyStageVisual();
+        onStageChanged?.Invoke();
+
+        if (IsFullyCut)
+            InvokeFullyCutOnce();
     }
 
     /* ==============================
-     * 7. 내부 로직
+     * 8. 내부 로직
      * ============================== */
 
     private int GetMaxStage()
     {
-        if (stagePrefabs != null && stagePrefabs.Length > 0)
-            return stagePrefabs.Length - 1;
+        int byPrefabs = (stagePrefabs != null && stagePrefabs.Length > 0) ? stagePrefabs.Length - 1 : 0;
 
-        return 0;
+        if (useOverrideMaxStage)
+        {
+            // 프리팹 길이가 override보다 짧으면 터질 수 있으니 안전하게 제한
+            return Mathf.Min(overrideMaxStage, byPrefabs);
+        }
+
+        return byPrefabs;
     }
 
-private void ApplyStageVisual()
-{
-    if (currentVisualInstance != null)
+    private void InvokeFullyCutOnce()
     {
-        Destroy(currentVisualInstance);
-        currentVisualInstance = null;
+        if (fullyCutInvoked) return;
+        fullyCutInvoked = true;
+
+        onFullyCut?.Invoke();
+
+        // 타이머 컨트롤러가 연결돼 있으면 성공 패널 띄우기
+
+        Debug.Log("[Cuttable] Fully Cut!");
     }
 
-    if (stagePrefabs == null || stagePrefabs.Length == 0)
+    private void ApplyStageVisual()
     {
-        Debug.LogWarning("[Cuttable] stagePrefabs is empty!");
-        return;
+        if (currentVisualInstance != null)
+        {
+            Destroy(currentVisualInstance);
+            currentVisualInstance = null;
+        }
+
+        if (stagePrefabs == null || stagePrefabs.Length == 0)
+        {
+            Debug.LogWarning("[Cuttable] stagePrefabs is empty!");
+            return;
+        }
+
+        int idx = Mathf.Clamp(currentStage, 0, stagePrefabs.Length - 1);
+        GameObject prefab = stagePrefabs[idx];
+
+        if (prefab == null)
+        {
+            Debug.LogWarning($"[Cuttable] stagePrefabs[{idx}] is null!");
+            return;
+        }
+
+        currentVisualInstance = Instantiate(prefab, visualRoot);
+
+        if (resetLocalTransform)
+        {
+            currentVisualInstance.transform.localPosition = fixedLocalPosition;
+            currentVisualInstance.transform.localRotation = Quaternion.Euler(fixedLocalRotationEuler);
+            currentVisualInstance.transform.localScale = fixedLocalScale;
+        }
+
+        Debug.Log($"[Cuttable] Instantiated stage={idx} prefab={prefab.name} parent={visualRoot.name}");
     }
-
-    int idx = Mathf.Clamp(currentStage, 0, stagePrefabs.Length - 1);
-    GameObject prefab = stagePrefabs[idx];
-
-    if (prefab == null)
-    {
-        Debug.LogWarning($"[Cuttable] stagePrefabs[{idx}] is null!");
-        return;
-    }
-
-    currentVisualInstance = Instantiate(prefab, visualRoot);
-    Debug.Log($"[Cuttable] Instantiated stage={idx} prefab={prefab.name} parent={visualRoot.name}");
-
-    if (resetLocalTransform)
-    {
-        currentVisualInstance.transform.localPosition = fixedLocalPosition;
-        currentVisualInstance.transform.localRotation = Quaternion.Euler(fixedLocalRotationEuler);
-        currentVisualInstance.transform.localScale = fixedLocalScale;
-    }
-}
 }
