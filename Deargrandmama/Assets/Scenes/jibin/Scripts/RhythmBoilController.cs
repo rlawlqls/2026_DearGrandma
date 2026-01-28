@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class RhythmBoilController : MonoBehaviour
@@ -153,6 +154,13 @@ public class RhythmBoilController : MonoBehaviour
         isPlaying = false;
         rhythmGamePanel.SetActive(false);
         successPanel.SetActive(true);
+    }
+    IEnumerator NextRoundDelay()
+    {
+        inputLocked = true;
+        yield return new WaitForSeconds(0.15f); // 0.1~0.2 추천
+        inputLocked = false;
+        StartRound();
     }
 
 }
