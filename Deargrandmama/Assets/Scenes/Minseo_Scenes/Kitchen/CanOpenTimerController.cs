@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI; // 이미지 제어를 위해 필수!
 using UnityEngine.SceneManagement;
 
-public class CanOpenTimerController : MonoBehaviour
+public class SoursageTimerController : MonoBehaviour
 {
     public float totalTime = 20f; // 총 시간 (20초)
     private float currentTime;

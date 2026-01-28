@@ -5,15 +5,13 @@ public class PenchCursorFollow : MonoBehaviour
     [SerializeField] private Camera cam;
     public bool followOn = false;
 
-    [Header("Visual Offset Settings")]
-    [SerializeField] private Transform penchVisual; // 펜치 이미지가 들어있는 자식 오브젝트
-    [SerializeField] private Vector3 visualOffset; // 마우스 커서와 펜치 날 사이의 간격 조정
+    [Header("Visual Settings")]
+    [SerializeField] private Transform penchVisual; // ❗여기에 자식인 pench를 꼭 넣어줘
+    [SerializeField] private Vector3 visualOffset;
 
     private void Awake()
     {
         if (cam == null) cam = Camera.main;
-
-        // 시작할 때 오프셋 적용
         UpdateVisualOffset();
     }
 
@@ -21,18 +19,18 @@ public class PenchCursorFollow : MonoBehaviour
     {
         if (!followOn) return;
 
-        // 1. 마우스의 스크린 좌표를 가져옴
+        // 마우스의 스크린 좌표
         Vector3 mousePos = Input.mousePosition;
 
-        // 2. 카메라와의 거리를 고려하여 월드 좌표로 변환 (보통 10f가 적당함)
-        mousePos.z = 10f;
-        Vector3 worldPos = cam.ScreenToWorldPoint(mousePos);
+        // 2D 씬이므로 카메라와의 거리를 기반으로 월드 좌표 변환
+        // 카메라 Z가 보통 -10이므로 10만큼의 깊이를 줌
+        mousePos.z = Mathf.Abs(cam.transform.position.z);
 
-        // 3. 2D 게임이므로 Z축은 0으로 고정
-        worldPos.z = 0f;
+        Vector3 targetPos = cam.ScreenToWorldPoint(mousePos);
+        targetPos.z = 0f; // 2D 평면 고정
 
-        // 4. 부모(이 오브젝트)를 마우스 위치로 이동
-        transform.position = worldPos;
+        // 부모 위치를 마우스 끝으로 이동
+        transform.position = targetPos;
     }
 
     private void UpdateVisualOffset()
@@ -43,16 +41,14 @@ public class PenchCursorFollow : MonoBehaviour
         }
     }
 
-    // 인스펙터에서 값을 수정하면 실시간으로 반영되게 함
     private void OnValidate()
     {
         UpdateVisualOffset();
     }
 
-    // 다른 스크립트(ToolManager 등)에서 펜치를 켜고 끌 때 사용
     public void SetFollow(bool on)
     {
         followOn = on;
-        Cursor.visible = !on; // 펜치를 쓰면 기본 마우스 커서는 숨김
+        Cursor.visible = !on;
     }
 }
