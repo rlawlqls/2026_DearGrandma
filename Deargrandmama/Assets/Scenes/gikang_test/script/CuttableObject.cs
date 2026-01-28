@@ -39,7 +39,7 @@ public class CuttableObject : MonoBehaviour
     [Tooltip("마지막 스테이지 인덱스 (예: 7이면 0~7 총 8단계)")]
     [SerializeField] private int overrideMaxStage = 7;
     [SerializeField] private SausageCutManager sausageManager;
-    
+    [SerializeField] private onionCutManager1 onionManager;
 
     /* ==============================
      * 3. 이벤트
@@ -56,6 +56,8 @@ public class CuttableObject : MonoBehaviour
     [Header("Optional - Timer Controller")]
     [Tooltip("완전 썰림 시 성공 패널을 띄우고 싶으면 연결하세요.")]
     [SerializeField] private sosigecontrol timerController;
+    [SerializeField] private onioncontrol oniontimerController;
+
 
     /* ==============================
      * 5. 내부 캐시
@@ -93,11 +95,19 @@ public class CuttableObject : MonoBehaviour
     /// <summary>"썰기 1회 성공" 시 호출</summary>
 public void ApplyOneCut()
 {
-    // ✅ 1) 무조건 부모에게 "컷 1회" 보고 (총 8회 카운트용)
+    // ✅ 1) 컷 1회 보고 (하나만)
     if (sausageManager != null)
+    {
         sausageManager.RegisterCut();
+    }
+    else if (onionManager != null)
+    {
+        onionManager.RegisterCut();
+    }
     else
-        Debug.LogWarning("[Cuttable] sausageManager is NULL (Inspector 연결 필요)");
+    {
+        Debug.LogWarning("[Cuttable] CutManager is NULL (sausageManager / onionManager Inspector 연결 필요)");
+    }
 
     // ✅ 2) 비주얼 단계는 끝나면 더 이상 진행 안 함
     if (IsFullyCut) return;

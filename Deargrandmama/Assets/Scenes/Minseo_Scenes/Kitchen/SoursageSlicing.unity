@@ -1283,6 +1283,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GuideLine_0 (1)1
       objectReference: {fileID: 0}
+    - target: {fileID: 4257176244312926672, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4257176244862115651, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
       propertyPath: sausageManager
       value: 
@@ -1294,6 +1298,18 @@ PrefabInstance:
     - target: {fileID: 4257176244862115651, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
       propertyPath: overrideMaxStage
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257176244862115653, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257176244862115653, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257176244862115653, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 864775475
       objectReference: {fileID: 0}
     - target: {fileID: 4257176245081881301, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
       propertyPath: m_Name
@@ -1570,7 +1586,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -265880267
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 132c2c764b0b8c245ba9f34b6b3dad9d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2198,7 +2214,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -265880267
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: caf2c8b436a03674a9fd84f2d9b5e240, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2413,7 +2429,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -265880267
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1aab9cfe6d284a643824bd50a3f1e71a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3145,8 +3161,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -871919515
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1b9d814896c195f4b8e91c9e6e012016, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3202,6 +3218,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1973560211}
     m_Modifications:
+    - target: {fileID: 4257176244312926672, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4257176244862115651, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
       propertyPath: sausageManager
       value: 
@@ -3229,6 +3249,18 @@ PrefabInstance:
     - target: {fileID: 4257176244862115651, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
       propertyPath: onFullyCut.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257176244862115653, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257176244862115653, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257176244862115653, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 864775475
       objectReference: {fileID: 0}
     - target: {fileID: 4257176245081881301, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
       propertyPath: m_Name
