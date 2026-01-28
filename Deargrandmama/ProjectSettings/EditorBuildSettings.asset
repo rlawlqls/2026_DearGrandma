@@ -4,6 +4,7 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
+<<<<<<< HEAD
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/jibin/Starting.unity
@@ -20,4 +21,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Minseo_Scenes/RecipeBook.unity
     guid: 478c35f315fecf04ca64418fe2922db6
+=======
+  m_Scenes: []
+>>>>>>> b8ebed910ee02e6ad547068db214528dccb14f31
   m_configObjects: {}
