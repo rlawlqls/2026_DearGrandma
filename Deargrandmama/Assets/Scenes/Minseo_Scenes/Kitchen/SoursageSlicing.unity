@@ -326,8 +326,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 291967814}
-        m_TargetAssemblyTypeName: TimerController, Assembly-CSharp
+      - m_Target: {fileID: 291967816}
+        m_TargetAssemblyTypeName: sosigecontrol, Assembly-CSharp
         m_MethodName: OnNextGameButtonClick
         m_Mode: 1
         m_Arguments:
@@ -454,6 +454,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 178701460}
   m_CullTransparentMesh: 1
+--- !u!4 &211977405 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4257176245081881304, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
+  m_PrefabInstance: {fileID: 4257176244727352896}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &234972042
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,7 +666,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 291967815}
-  - component: {fileID: 291967814}
+  - component: {fileID: 291967816}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -669,21 +674,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &291967814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 291967813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56ab1b9f680b84f4aa86815252d2d3f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  totalTime: 20
-  timerFillImage: {fileID: 305452440}
-  timeoutPanel: {fileID: 76952059}
 --- !u!4 &291967815
 Transform:
   m_ObjectHideFlags: 0
@@ -699,6 +689,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &291967816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291967813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5811a333ae0009748bf59327428d8288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalTime: 20
+  timerFillImage: {fileID: 305452440}
+  timeoutPanel: {fileID: 76952059}
+  successPanel: {fileID: 178701460}
 --- !u!1 &305452439
 GameObject:
   m_ObjectHideFlags: 0
@@ -1259,7 +1265,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1973560211}
     m_Modifications:
     - target: {fileID: 3957782824836929165, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
       propertyPath: m_Name
@@ -1277,6 +1283,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: GuideLine_0 (1)1
       objectReference: {fileID: 0}
+    - target: {fileID: 4257176244862115651, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
+      propertyPath: sausageManager
+      value: 
+      objectReference: {fileID: 1973560210}
+    - target: {fileID: 4257176244862115651, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
+      propertyPath: timerController
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257176244862115651, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
+      propertyPath: overrideMaxStage
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4257176245081881301, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
       propertyPath: m_Name
       value: SausageRoot (1)
@@ -1291,19 +1309,19 @@ PrefabInstance:
       objectReference: {fileID: 844667382}
     - target: {fileID: 4257176245081881304, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4257176245081881304, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.99
+      value: -2.4587078
       objectReference: {fileID: 0}
     - target: {fileID: 4257176245081881304, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.25
+      value: -0.26178873
       objectReference: {fileID: 0}
     - target: {fileID: 4257176245081881304, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.186957
+      value: -0.07045799
       objectReference: {fileID: 0}
     - target: {fileID: 4257176245081881304, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1311,15 +1329,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4257176245081881304, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4257176245081881304, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4257176245081881304, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4257176245081881304, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1930,8 +1948,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 291967814}
-        m_TargetAssemblyTypeName: TimerController, Assembly-CSharp
+      - m_Target: {fileID: 291967816}
+        m_TargetAssemblyTypeName: sosigecontrol, Assembly-CSharp
         m_MethodName: OnNextGameButtonClick
         m_Mode: 1
         m_Arguments:
@@ -2993,6 +3011,54 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1973560209
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1973560211}
+  - component: {fileID: 1973560210}
+  m_Layer: 0
+  m_Name: 'SausageParentController '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1973560210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973560209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d1431be69c09054e9fd751547f2d117, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredCuts: 8
+  timerController: {fileID: 291967816}
+--- !u!4 &1973560211
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973560209}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8.448708, y: -0.9882113, z: -0.116499014}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 211977405}
+  - {fileID: 2103777308}
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1993682649 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3957782826166211158, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
@@ -3004,6 +3070,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6436efb8099c1934b857348fcb59e944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &2103777308 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4257176245081881304, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
+  m_PrefabInstance: {fileID: 672745744}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2120378545
 GameObject:
   m_ObjectHideFlags: 0
@@ -3129,8 +3200,36 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1973560211}
     m_Modifications:
+    - target: {fileID: 4257176244862115651, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
+      propertyPath: sausageManager
+      value: 
+      objectReference: {fileID: 1973560210}
+    - target: {fileID: 4257176244862115651, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
+      propertyPath: timerController
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257176244862115651, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
+      propertyPath: overrideMaxStage
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257176244862115651, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
+      propertyPath: onFullyCut.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257176244862115651, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
+      propertyPath: onFullyCut.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257176244862115651, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
+      propertyPath: onFullyCut.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 273209360}
+    - target: {fileID: 4257176244862115651, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
+      propertyPath: onFullyCut.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4257176245081881301, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
       propertyPath: m_Name
       value: SausageRoot
@@ -3145,19 +3244,19 @@ PrefabInstance:
       objectReference: {fileID: 844667382}
     - target: {fileID: 4257176245081881304, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4257176245081881304, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.47
+      value: 2.0212927
       objectReference: {fileID: 0}
     - target: {fileID: 4257176245081881304, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.14
+      value: -2.1517887
       objectReference: {fileID: 0}
     - target: {fileID: 4257176245081881304, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.186957
+      value: -0.07045799
       objectReference: {fileID: 0}
     - target: {fileID: 4257176245081881304, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3165,15 +3264,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4257176245081881304, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4257176245081881304, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4257176245081881304, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4257176245081881304, guid: 0f7ae68ba98ad49449ffe6581d17e126, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

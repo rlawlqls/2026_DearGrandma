@@ -5,15 +5,15 @@ using TMPro;
 
 public class CountdownManager : MonoBehaviour
 {
-    public TextMeshProUGUI countdownText; // ÀÎ½ºÆåÅÍ¿¡¼­ CountdownText ¿¬°á
-    public GameObject gameLogic; // °ÔÀÓ ½ÃÀÛÀ» Á¦¾îÇÒ ¿ÀºêÁ§Æ® (½ºÅ©¸³Æ®)
+    public TextMeshProUGUI countdownText; // ï¿½Î½ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ CountdownText ï¿½ï¿½ï¿½ï¿½
+    public GameObject gameLogic; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® (ï¿½ï¿½Å©ï¿½ï¿½Æ®)
 
     void Start()
     {
-        // Ã³À½¿£ °ÔÀÓ ·ÎÁ÷À» ²¨µÎ±â
+        // Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î±ï¿½
         if (gameLogic != null) gameLogic.SetActive(false);
 
-        // Ä«¿îÆ®´Ù¿î ÄÚ·çÆ¾ ½ÃÀÛ
+        // Ä«ï¿½ï¿½Æ®ï¿½Ù¿ï¿½ ï¿½Ú·ï¿½Æ¾ ï¿½ï¿½ï¿½ï¿½
         StartCoroutine(StartCountdown());
     }
 
@@ -23,19 +23,19 @@ public class CountdownManager : MonoBehaviour
 
         while (count > 0)
         {
-            countdownText.text = count.ToString(); // ¼ýÀÚ Ç¥½Ã
-            yield return new WaitForSeconds(1.0f); // 1ÃÊ ´ë±â
+            countdownText.text = count.ToString(); // ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
+            yield return new WaitForSeconds(1.0f); // 1ï¿½ï¿½ ï¿½ï¿½ï¿½
             count--;
         }
 
-        countdownText.text = "GO!"; // ½ÃÀÛ ¾Ë¸²
+        countdownText.text = "GO!"; // ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½
         yield return new WaitForSeconds(1.0f);
 
-        countdownText.gameObject.SetActive(false); // ÅØ½ºÆ® ¼û±â±â
+        countdownText.gameObject.SetActive(false); // ï¿½Ø½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½
 
-        // °ÔÀÓ ½ÃÀÛ! (²¨µ×´ø °ÔÀÓ ·ÎÁ÷ ÄÑ±â)
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½! (ï¿½ï¿½ï¿½×´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ±ï¿½)
         if (gameLogic != null) gameLogic.SetActive(true);
 
-        Debug.Log("°ÔÀÓ ½ÃÀÛµÊ!");
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ûµï¿½!");
     }
 }
